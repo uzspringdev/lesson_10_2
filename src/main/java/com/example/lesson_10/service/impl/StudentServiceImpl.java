@@ -84,6 +84,16 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public ResponseEntity<List<Student>> getAllByUniversityId(Long id) {
+        try {
+            List<Student> studentList = studentRepository.getAllByGroupFacultyUniversityId(id);
+            return new ResponseEntity<>(studentList, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
     public ResponseEntity<Student> update(Long id, StudentDto studentDto) {
         try {
             Optional<Student> optionalStudent = studentRepository.findById(id);

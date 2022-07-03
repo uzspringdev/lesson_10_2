@@ -17,8 +17,11 @@ public interface StudentService {
     //GET STUDENT BY ID
     ResponseEntity<Student> getById(Long id);
 
+    //GET STUDENTS BY UNIVERSITY ID
+    ResponseEntity<List<Student>> getAllByUniversityId(Long id);
+
     //UPDATE STUDENT
-    ResponseEntity<Student> update(Long id,StudentDto studentDto);
+    ResponseEntity<Student> update(Long id, StudentDto studentDto);
 
     //DELETE STUDENT
     ResponseEntity<String> delete(Long id);

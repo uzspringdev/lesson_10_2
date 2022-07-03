@@ -29,6 +29,11 @@ public class StudentController {
         return service.getAll();
     }
 
+    @GetMapping(value = "/university/{id}")
+    public ResponseEntity<List<Student>> getAllByUniversityId(@PathVariable Long id) {
+        return service.getAllByUniversityId(id);
+    }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<Student> getById(@PathVariable Long id) {
         return service.getById(id);
